@@ -1,0 +1,19 @@
+{
+  "name": "module_dev",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zabadooj",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zabadoooj/module_dev.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Zabadoooj/module_dev/issues"
+  },
+  "homepage": "https://github.com/Zabadoooj/module_dev#readme",
+  "description": ""
+}
