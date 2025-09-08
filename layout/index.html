@@ -3,57 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
 <body>
     <main>
-        <ul class="left_box">
+        <div class="left_box">
             <div class="user_cardbox">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar">
-                <h1>UserName</h1>
-                <p>Description</p>
+                <div class="info">
+                    <div>
+                        UserName
+                        Description
+                    </div>
+                </div>
 
                 <button>settings</button>
             </div>
 
 
             <div class="chat_listbox">
-                <ul class="chat_list">
-                    <li class="chatbox">
+                <div class="chat_list">
+
+                    <div class="chatbox">
                         <div class="chat">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar">
-                            <h1>ChatName</h1>
-                            <p>LastMessage</p>
+                            <div class="info">
+                                <b>ChatName</b> <br>
+                                LastMessage
+                            </div>
                         </div>
-                    </li>
-                </ul>
-            </div> 
-        </ul>
+                    </div>
+
+                    <div class="chatbox">
+                        <div class="chat">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar">
+                            <div class="info">
+                                <b>ChatName</b> <br>
+                                LastMessage
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chatbox">
+                        <div class="chat">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar">
+                            <div class="info">
+                                <b>ChatName</b> <br>
+                                LastMessage
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
 
 
         <div class="messanger_mainbox">
-            <div class="inner_box">
-                <div class="innerbox_messages">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar">
-                    <ul class="innerbox_message">
-                        <li>Короткое сообщение какое-нибудь</li>
-                        <li>Длинное сообщение всякое, тут много текста, просто потому что. Не знаю что ещё написать, по этому продолжу писать всякий бред чтоб заполнить пространство</li>
-                    </ul>
-
+            <div class="mainChatbox">
+                <div class="inner_box">
+                    <div class="innerbox_messages">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar">
+                        <div class="innerbox_message">
+                            <div>Короткое сообщение какое-нибудь</div>
+                            <div>Длинное сообщение всякое, тут много текста, просто потому что. Не знаю что ещё написать, по этому продолжу писать всякий бред чтоб заполнить пространство</div>
+                        </div>
+    
+                    </div>
+    
                 </div>
-
-            </div>
-            
-
-            <div class="out_box">
-                <div class="outbox_messages">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar">
-                    <ul class="outbox_message">
-                        <li>Короткое сообщение какое-нибудь</li>
-                        <li>Длинное сообщение всякое, тут много текста, просто потому что. Не знаю что ещё написать, по этому продолжу писать всякий бред чтоб заполнить пространство</li>
-                    </ul>
+                
+    
+                <div class="out_box">
+                    <div class="outbox_messages">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar">
+                        <div class="outbox_message">
+                            <div>Короткое сообщение какое-нибудь</div>
+                            <div>Длинное сообщение всякое, тут много текста, просто потому что. Не знаю что ещё написать, по этому продолжу писать всякий бред чтоб заполнить пространство</div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div class="send_messagebox">
+                <div>Message:</div>
+                <button>Send</button>
+            </div>
+
         </div>
 
 
@@ -68,8 +105,10 @@
 
             <div class="rightbox_info">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar">
-                <h1>ChatName</h1>
-                <p>Description</p>
+                <div>
+                    ChatName
+                    Description
+                </div>
             </div>
         </div>
         
