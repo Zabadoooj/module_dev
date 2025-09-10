@@ -17,12 +17,18 @@ main{
 
 .left_box{
     background-color: #66639e;
+    /* background-color: #7775A6; */
     color: white;
 
     display: flex;
     flex-direction: column;
 
-    gap: 4vh;
+    width: 20vw;
+    min-width: 20vw;
+    max-width: 25vw;
+
+    margin: 1vh 0.5vw;
+    gap: 3.5vh;
 }
 
 
@@ -31,29 +37,36 @@ main{
     background-color: #432F62;
 
     display: flex;
-    font-size: 80%;
+    align-items: center;
+    justify-content: left;
 }
 .user_cardbox img{
     border-radius: 100%;
-    padding: 3%;
-    height: 10vh;
+    padding: 1vh 0px;
+    margin: 0 10px;
+    height: 7vh;
 }
 .user_cardbox .info{
     display: flex;
     flex-direction: column;
+    justify-content: right;
 }
-
+.user_cardbox button{
+    padding: 0.5vh;
+}
 
 .chat_listbox{
     display: flex;
     flex-direction: column;
 
     background-color: #221F26;
-    height: 80vh;
+    height: 85vh;
 }
 .chat_listbox .chatbox{
-    padding: 1vh 0;
-    margin: 1vh 0px;
+    cursor: pointer;
+
+    padding: 1vh 0px;
+    margin: 0.5vh 0px;
     background-color: #66639e;
 }
 .chat_listbox .chatbox:hover{
@@ -62,8 +75,137 @@ main{
 .chat_listbox .chat{
     display: flex;
     align-items: center;
+    justify-content: left;
 }
 .chat_listbox .chatbox img{
-    width: 4vw;
+    height: 7vh;
     border-radius: 100%;
+
+    margin: 0 10px;
+}
+
+
+
+.messanger_mainbox{
+    display: flex;
+    flex-direction: column;
+}
+
+.send_messagebox{
+    position: absolute;
+    transform: translate(18vw, 90vh);
+
+    background-color: #682582;
+    color: white;
+
+    padding: 1vw 5vw;
+}
+
+.messanger_mainbox .mainChatbox{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: calc(100vw - 660px);
+}
+
+
+.message_wrapper{
+    width: 100%;
+    display: flex;
+}
+.sended_msg{
+    display: flex;
+    justify-content: end;
+}
+.recived_msg{
+    display: flex;
+    justify-content: start;
+}
+
+.message{
+    display: flex;
+    gap: 5px;
+}
+.message_content{
+    max-width: 300px;
+}
+
+
+.avatar {
+    height: 32px;
+    width: 32px;
+    border-radius: 1000px;
+}
+
+
+.right_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 20vw;
+    min-width: 20vw;
+    max-width: 25vw;
+
+    margin: 1vh 0.5vw;
+    gap: 3.5vh;
+    
+    font-size: 2.5vh;
+
+}
+.rightbox_info{
+    background-color: #472C72;
+    color: white;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.rightbox_info img{
+    height: 25vh;
+    /* padding: 2vh 0; */
+
+    border-radius: 16px;
+}
+
+.selector{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #472C72;
+
+    padding: 1vh;
+    width: 90%;
+}
+.selector .buttons{
+    background-color: #221F26;
+    padding: 1vh;
+    border-radius: 15px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+.selector button{
+    padding: 2vh;
+    font-size: 1.8vh;
+
+    background-color: #472C72;
+    color: white;
+
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.selector button:hover{
+    background-color: #66639e;
 }
