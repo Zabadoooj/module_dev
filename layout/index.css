@@ -4,7 +4,7 @@
 }
 
 body{
-    background: linear-gradient(#7775A6, #7E64BC);
+    background: linear-gradient(#7775A6, #9355cc);
     /* background-color: #7775A6; */
     height: 100vh;
 
@@ -16,8 +16,8 @@ main{
 }
 
 
-.left_box{
-    background-color: #66639e;
+.leftBox{
+    /* background-color: #66639e; */
     /* background-color: #7775A6; */
     color: white;
 
@@ -33,32 +33,38 @@ main{
 }
 
 
-.user_cardbox{
+.usercardBox{
 
     background-color: #432F62;
+    border-radius: 20px 20px 0 0;
 
     display: flex;
     align-items: center;
     justify-content: left;
 }
-.user_cardbox img{
+.usercardBox img{
     border-radius: 100%;
     padding: 1vh 0px;
     margin: 0 10px;
+
     height: 7vh;
+
+    min-height: 40px;
+    max-height: 70px;
 }
-.user_cardbox .info{
+.usercardBox .info{
     display: flex;
     flex-direction: column;
     justify-content: right;
 }
-.user_cardbox button{
+.usercardBox button{
     padding: 0.5vh;
 }
 
 .chat_listbox{
     display: flex;
     flex-direction: column;
+    border-radius: 0 0 20px 20px;
 
     background-color: #221F26;
     height: 85vh;
@@ -80,6 +86,10 @@ main{
 }
 .chat_listbox .chatbox img{
     height: 7vh;
+
+    min-height: 40px;
+    max-height: 70px;
+
     border-radius: 100%;
 
     margin: 0 10px;
@@ -87,35 +97,68 @@ main{
 
 
 
-.messanger_mainbox{
+.messangerMainBox{
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
-.send_messagebox{
+.sendMessageBox{
     position: absolute;
-    transform: translate(18vw, 90vh);
+    /* transform: translate(18vw, 90vh); */
 
-    background-color: #682582;
+    display: flex;
+
+    bottom: 15px;
+    width: calc(100% - 30px);
+
+    min-width: 200px;
+    max-width: 1200px;
+
+    background-color: #4b185f7c;
+    backdrop-filter: blur(1.5px);
     color: white;
 
-    padding: 1vw 5vw;
+    padding: 10px;
+    border-radius: 20px;
+}
+.sendMessageBox .sendInputBox{
+    background-color: rgba(133, 21, 90, 0.300);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+
+    min-width: 200px;
+    max-width: 1100px;
 }
 
-.messanger_mainbox .mainChatbox{
+/* .secondMessageBox input{
+} */
+
+.messangerMainBox .mainChatBox{
     display: flex;
     flex-direction: column;
     height: 100%;
     width: calc(100vw - 660px);
 
+    gap: 20px;
+
+    overflow-y: scroll;
+
     min-width: 460px;
     max-width: 1200px;
+}
+
+.messangerMainBox .mainChatBox::-webkit-scrollbar {
+    display: none;
 }
 
 
 .message_wrapper{
     width: 100%;
     display: flex;
+    
 }
 .sended_msg{
     display: flex;
@@ -130,36 +173,64 @@ main{
     display: flex;
     gap: 5px;
 
+    padding: 1%;
+
 }
 .message_content{
-    max-width: 300px;
+    width: 30vw;
+    min-width: 300px;
+    max-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .sended_msg .message{
     display: flex;
-    gap: 5px;
     
-    flex-direction: column;
-    flex-wrap: wrap-reverse;
+    /* flex-direction: column; */
+    flex-direction: row-reverse;
+    /* flex-wrap: wrap-reverse; */
 }
 .recived_msg .message{
     display: flex;
-    gap: 5px;
+    flex-direction: row;
 
-    flex-direction: column;
-    flex-wrap: wrap;
+    /* flex-direction: column;
+    flex-wrap: wrap; */
 }
 
 .message_content div{
-    background-color: white;
-    /* border-radius: 20px; */
+    padding: calc(1vw - 7px);
+    font-size: 1vw;
 }
 
+.recived_msg .message_content div{
+    background-color: #C79EE6;
+}
+.sended_msg .message_content div{
+    background-color: #C0AAFF;
+}
 
 .avatar {
     height: 32px;
     width: 32px;
     border-radius: 1000px;
+}
+
+.sended_msg .firstMessage{
+    border-radius: 350px 1000px 100px 300px;
+}
+.recived_msg .firstMessage{
+    padding: 2vh 1vw;
+    border-radius: 1000px 350px 300px 100px;
+}
+.secondMessage{
+    border-radius: 10px 10px 10px 10px;
+}
+.message .lastMessage{
+    border-radius: 10px 10px 25px 25px;
 }
 
 
@@ -189,13 +260,18 @@ main{
     flex-direction: column;
     align-items: center;
 
+    border-radius: 0 0 20px 20px;
+
 }
 
 .rightbox_info img{
     height: 25vh;
-    /* padding: 2vh 0; */
+    padding: 2vh;
 
-    border-radius: 16px;
+    min-height: 150px;
+    max-height: 200px;
+
+    border-radius: 16%;
 }
 
 .selector{
@@ -203,6 +279,7 @@ main{
     justify-content: center;
     align-items: center;
     background-color: #472C72;
+    border-radius: 20px 20px 0 0 ;
 
     width: 100%;
     padding: 1vh 0;
@@ -221,9 +298,9 @@ main{
 }
 
 .selector button{
-    /* padding: calc(2vh - 7px); */
-    padding: 2vh;
-    font-size: 1.8vh;
+    padding: calc(1vw - 3px);
+    /* padding: 0.9vw; */
+    font-size: 1vw;
 
     background-color: #472C72;
     color: white;
