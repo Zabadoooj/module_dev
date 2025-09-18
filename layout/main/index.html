@@ -70,7 +70,24 @@
                     <div class="tabsList">
         
                         <div class="tab">
-        
+                            <div class="text">ChatName</div>
+                            <button class="close">X</button>
+                        </div>
+                        <div class="tab SelectedTab">
+                            <div class="text">SelectedChat</div>
+                            <button class="close">X</button>
+                        </div>
+                        <div class="tab">
+                            <div class="text">ChatName</div>
+                            <button class="close">X</button>
+                        </div>
+                        <div class="tab">
+                            <div class="text">ChatName</div>
+                            <button class="close">X</button>
+                        </div>
+
+                        <div class="addTab">
+                            <button>+</button>
                         </div>
         
                     </div>
@@ -78,6 +95,16 @@
 
                 <div class="mockBlock-top"></div>
 
+                <div class="message_wrapper sended_msg">
+                    <div class="message">
+                        <img class="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar">
+                        <div class="message_content">
+                            <div class="firstMessage">Короткое сообщение какое-нибудь</div>
+                            <div class="secondMessage">Длинное сообщение всякое, тут много текста, просто потому что. Не знаю что ещё написать, по этому продолжу писать всякий бред чтоб заполнить пространство</div>
+                            <div class="lastMessage">Последнее сообщение. Ну всё, бывай</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="message_wrapper sended_msg">
                     <div class="message">
                         <img class="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar">
@@ -99,6 +126,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="message_wrapper recived_msg">
                     <div class="message">
                         <img class="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar">
@@ -134,9 +162,18 @@
                 <div class="mockBlock-bottom"></div>
             </div>
 
-            <div class="sendMessageBox">
+
+            <svg style="display: none">
+            <filter id="lg-dist" x="0%" y="0%" width="100%" height="100%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.008 0.008" numOctaves="1" seed="22" result="noise" />
+                <feGaussianBlur in="noise" stdDeviation="30" result="blurred" />
+                <feDisplacementMap in="SourceGraphic" in2="blurred" scale="60" xChannelSelector="L" yChannelSelector="G" />
+            </filter>
+        </svg>
+
+            <div class="sendMessageBox blured">
+                <!-- <div class="glass-specular"></div> -->
                 <div contenteditable="" class="sendInputBox"></div>
-                <!-- <input type="Message"> -->
                 <button>Send</button>
             </div>
 
