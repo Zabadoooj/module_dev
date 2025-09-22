@@ -48,17 +48,10 @@ main{
 
     padding: 20px;
 }
-
-
-
 .text{
     font-size: xx-large;
     padding: 20px;
 }
-
-
-
-
 .inputBox{
     position: relative;
     width: 100%;
@@ -76,11 +69,6 @@ main{
     background-color: #8f8dc73a;
 }
 
-
-
-
-
-
 .login::before{
     content: "Логин";
     color: #303030;
@@ -93,6 +81,15 @@ main{
 
 .password::before{
     content: "Пароль";
+    color: #303030;
+
+    font-size: medium;
+
+    position: absolute;
+    bottom: 40px;
+}
+.repeatPassword::before{
+    content: "Подтверждение пароля";
     color: #303030;
 
     font-size: medium;
