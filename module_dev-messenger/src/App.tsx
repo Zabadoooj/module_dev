@@ -40,10 +40,12 @@ const Button = (props: ButtonProps) => {
 
 const UserCard = (props: userCardProps) => {
   return (
-    <div className="user-Card">
-      <div className="user-Avatar"></div>
-      <div className="user-Name">{props.userName}</div>
-      <div className="user-Desc">{props.userDesc}</div>
+    <div className="user-card">
+      <div className="user-avatar"></div>
+        <div className="user-data">
+          <div className="user-name">{props.userName}</div>
+          <div className="user-desc">{props.userDesc}</div>
+        </div>
     </div>
   )
 }
