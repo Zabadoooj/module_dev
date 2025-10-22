@@ -1,4 +1,58 @@
 import './Messenger.css'
+import { useShallow } from 'zustand/shallow'
+import { useMessagesStore } from '../stores/messagesStore'
+
+type UserDataT = {
+    userName: String
+    userDescription: String
+}
+
+const UserData = (props: UserDataT) => {
+    return (
+        <div className="usercardBox">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar" />
+                    <div className="info">
+                        <div className="userData">
+                            <div className="username">{props.userName}</div>
+                            <div className="descripton">{props.userDescription}</div>
+                        </div>
+                    </div>
+
+            <button>...</button>
+        </div>
+    )
+    
+}
+
+
+type ChatItemT = {
+    senderAvatar?: String
+    senderName: String
+    lastMessage: String
+    backroundColor?: String
+}
+
+const ChatItem = (props:ChatItemT) => {
+    return (
+        <div className="chatbox">
+            <div className="chat">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar" />
+                
+                <div className="info">
+                    <div className="chatName"><b>{props.senderName}</b></div>
+                    <div className="lastMessage">{props.lastMessage}</div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+
+
+
+
+
+
 
 function Messenger() {
     
@@ -6,31 +60,18 @@ function Messenger() {
         <>
         <main>
         <div className="leftBox">
-            <div className="usercardBox">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar" />
-                <div className="info">
-                    <div className="userData">
-                        <div className="username">UserName</div>
-                        <div className="descripton">Description</div>
-                    </div>
-                </div>
-
-                <button>...</button>
-            </div>
+            <UserData userName={"Ваше имя"} userDescription={"Ваше описание"} />
 
 
             <div className="chat_listbox">
                 <div className="chat_list">
 
-                    <div className="chatbox">
-                        <div className="chat">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar" />
-                            <div className="info">
-                                <div className="chatName"><b>ChatName</b></div>
-                                <div className="lastMessage">LastMessage</div>
-                            </div>
-                        </div>
-                    </div>
+                    <ChatItem senderName={"Имя Пользователя"} lastMessage={"Последнее сообщение"} />
+                    <ChatItem senderName={"Имя2"} lastMessage={"Халоу"} />
+                    <ChatItem senderName={"Имя3"} lastMessage={"Пока"} />
+                    <ChatItem senderName={"Имя4"} lastMessage={"Last Message"} />
+
+                    
 
 
                     

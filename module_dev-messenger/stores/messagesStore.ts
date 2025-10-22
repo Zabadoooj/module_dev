@@ -13,7 +13,7 @@ interface MessagesStoreI {
     createMessages: (data: MessageT) => void
 }
 
-const useMessagesStore = create<MessagesStoreI>((set) => ({
+export const useMessagesStore = create<MessagesStoreI>((set) => ({
     messages: [],
 
     createMessages: (data) => set((state) => {
