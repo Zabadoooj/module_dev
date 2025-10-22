@@ -1,0 +1,501 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: linear-gradient(#7775A6, #9355cc);
+    /* background-color: #7775A6; */
+    height: 100vh;
+
+    font-family:Arial, Helvetica, sans-serif;
+}
+main{
+    display: flex;
+    height: 100vh;
+}
+
+
+
+
+
+.leftBox{
+    /* background-color: #66639e; */
+    /* background-color: #7775A6; */
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    
+    overflow: hidden;
+
+    width: 20vw;
+    min-width: 20vw;
+    max-width: 25vw;
+
+    margin: 1vh 0.5vw;
+    gap: 3.5vh;
+}
+
+.blured{
+    backdrop-filter: blur(1px);
+}
+
+
+
+.usercardBox{
+
+    background-color: #432F62;
+    border-radius: 20px 20px 0 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    position: relative;
+}
+.usercardBox img{
+    border-radius: 100%;
+    padding: 1vh 0px;
+    margin: 0 10px;
+
+    height: 7vh;
+
+    min-height: 40px;
+    max-height: 70px;
+}
+.usercardBox .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+.usercardBox button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0.5vh;
+}
+
+.chat_listbox{
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 20px 20px;
+
+    background-color: #221F26;
+    height: 85vh;
+}
+.chat_listbox .chatbox{
+    cursor: pointer;
+
+    padding: 1vh 0px;
+    margin: 0.5vh 0px;
+    background-color: #66639e;
+}
+.chat_listbox .chatbox:hover{
+    background-color: #2F205D;
+}
+.chat_listbox .chat{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.chat_listbox .chatbox img{
+    height: 7vh;
+
+    min-height: 40px;
+    max-height: 70px;
+
+    border-radius: 100%;
+
+    margin: 0 10px;
+}
+
+
+
+
+
+.tabsMainbox{
+    position: absolute;
+    /* top: 15px; */
+    margin: 1.5vh 0;
+
+    width: 100%;
+    height: 5vh;
+
+    background: #472c72a6;
+    backdrop-filter: blur(2px);
+    outline: 2px inset rgba(255, 255, 255, 0.05);
+    border-radius: 20px 20px 0 0;
+
+    padding: 0px 0;
+
+    overflow: hidden;
+}
+.tabsList{
+    display: flex;
+    flex-direction: row;
+
+    gap: 5px;
+    justify-content: start;
+    align-items: center;
+
+    height: 100%;
+
+    overflow-x: scroll;
+}
+
+.tabsList::-webkit-scrollbar{
+    display: none;
+}
+
+.tabsList button{
+    background-color: white;
+    cursor: pointer;
+    border: none;
+}
+.tabsList button:hover{
+    background-color: #e2d9ee;
+}
+
+.tabsList .addTab button{
+    padding: 32%;
+    margin-left: 15px;
+}
+.tabsList .tab{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+
+    align-items: center;
+
+    background-color: #66639e;
+    color: white;
+    
+    height: 100%;
+    
+    margin: 0 0 0 5px;
+    padding: 0 10px;
+
+    /* backdrop-filter: ; */
+    box-shadow: 7px 5px 0px 0px rgba(0, 0, 0, 0.25);
+
+    overflow: hidden;
+    cursor: pointer;
+}
+.tabsList .tab:hover{
+    background-color: #2F205D;
+}
+
+.tabsList .SelectedTab{
+    background-color: #987fd1;
+}
+.tabsList .SelectedTab:hover{
+    background-color: #322055;
+}
+
+.tabsList .tab button{
+    padding: 5px;
+}
+
+
+
+
+
+.messangerMainBox{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    height: 100vh;
+}
+
+.sendMessageBox{
+    position: absolute;
+
+    display: flex;
+
+    bottom: 15px;
+    width: calc(100% - 30px);
+
+    border: 2px inset rgba(255, 255, 255, 0.15);
+    /* z-index: -1; */
+
+    min-width: 200px;
+    max-width: 1200px;
+
+    background-color: #4b185f7c;
+    color: white;
+
+    padding: 10px;
+    border-radius: 20px;
+}
+.sendMessageBox .sendInputBox{
+    background-color: rgba(133, 21, 90, 0.300);
+    backdrop-filter: blur(100px);
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+
+    border: 2px inset rgba(255, 255, 255, 0.05);
+    outline: none;
+
+    font-size: 1.8vh;
+
+    min-width: 200px;
+    max-width: 1100px;
+}
+
+.sendMessageBox button{
+    border: 2px inset rgba(255, 255, 255, 0.055);
+    cursor: pointer;
+
+    padding: 20px;
+    margin-left: 20px;
+
+    font-size: 1.8vh;
+
+    border-radius: 20%;
+    
+    color: white;
+    background-color: #51639D;
+}
+.sendMessageBox button:hover{
+    border: 2px inset rgba(255, 255, 255, 0.151);
+    backdrop-filter: blur(20px);
+    background-color: #d3c1ff57;
+}
+
+
+.messangerMainBox .mainChatBox{
+    display: flex;
+    flex-direction: column;
+    /* height: 90%; */
+    height: 100%;
+    width: calc(100vw - 660px);
+
+    gap: 20px;
+
+    overflow-y: scroll;
+
+    min-width: 460px;
+    max-width: 1200px;
+}
+
+.messangerMainBox .mainChatBox::-webkit-scrollbar {
+    display: none;
+}
+
+.mockBlock-top{
+    width: 100%;
+    margin-top: 5vh;
+}
+.mockBlock-bottom {
+    width: 100%;
+    margin-bottom: 10vh;
+}
+
+.message_wrapper{
+    width: 100%;
+    display: flex;
+    
+}
+.sended_msg{
+    display: flex;
+    justify-content: end;
+}
+.recived_msg{
+    display: flex;
+    justify-content: start;
+}
+
+.message{
+    display: flex;
+    gap: 5px;
+
+    padding: 1%;
+
+}
+.message_content{
+    width: 30vw;
+    min-width: 300px;
+    max-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sended_msg .message{
+    display: flex;
+    
+    /* flex-direction: column; */
+    flex-direction: row-reverse;
+    /* flex-wrap: wrap-reverse; */
+}
+.recived_msg .message{
+    display: flex;
+    flex-direction: row;
+
+    /* flex-direction: column;
+    flex-wrap: wrap; */
+}
+
+.message_content div{
+    padding: calc(1.2vh - 7px);
+    font-size: 1.8vh;
+}
+
+.recived_msg .message_content div{
+    background-color: #C79EE6;
+}
+.sended_msg .message_content div{
+    background-color: #C0AAFF;
+}
+
+.avatar {
+    height: 32px;
+    width: 32px;
+    border-radius: 1000px;
+}
+
+.sended_msg .firstMessage{
+    border-radius: 350px 1000px 100px 300px;
+}
+.recived_msg .firstMessage{
+    padding: 2vh 1vw;
+    border-radius: 1000px 350px 300px 100px;
+}
+.secondMessage{
+    border-radius: 10px 10px 10px 10px;
+}
+.message .lastMessage{
+    border-radius: 10px 10px 25px 25px;
+}
+
+
+
+
+
+
+.right_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 97vh;
+    width: 100%;
+    min-width: 100px;
+    max-width: 300px;
+
+    margin: 1vh 0.5vw;
+    gap: 3.5vh;
+    
+    font-size: 2.5vh;
+
+}
+.rightbox_info{
+    background-color: #472C72;
+    color: white;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 0 0 20px 20px;
+
+}
+
+.rightbox_info img{
+    height: 25vh;
+    padding: 2vh;
+
+    min-height: 150px;
+    max-height: 200px;
+
+    border-radius: 16%;
+}
+
+.rightbox_info .buttons{
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+    width: 100%;
+
+    position: absolute;
+    bottom: 20px;
+}
+.rightbox_info .buttons button{
+    padding: 10px;
+    font-size: 2vh;
+
+    background-color: #51639D;
+    color: white;
+    border: none;
+}
+.rightbox_info .buttons button:hover{
+    background-color: #AB90EB;
+
+    cursor: pointer;
+}
+
+.rightbox_info .buttons .block_user{
+    background-color: #D52121;
+}
+.rightbox_info .buttons .block_user:hover{
+    background-color: #940000;
+}
+
+
+
+.selector{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #472C72;
+    border-radius: 20px 20px 0 0 ;
+
+    width: 100%;
+    padding: 1vh 0;
+}
+.selector .buttons{
+    background-color: #221F26;
+    padding: 1vh;
+    border-radius: 15px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+.selector button{
+    padding: calc(1vw - 3px);
+    /* padding: 0.9vw; */
+    font-size: 1vw;
+
+    background-color: #472C72;
+    color: white;
+
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.selector button:hover{
+    background-color: #66639e;
+}
+
+
+
+
+
+/* .sendMessageBox{
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(1.5px);
+} */

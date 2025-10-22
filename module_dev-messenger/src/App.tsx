@@ -1,7 +1,6 @@
-// import { useState } from 'react'
 import { useShallow } from 'zustand/shallow'
 import './App.css'
-import { useProfile } from './stores/profile_store'
+import { useProfile } from '../stores/profile_store'
 import { useState } from 'react'
 
 type InputProps = {
@@ -61,10 +60,11 @@ const UserCard = (props: userCardProps) => {
 
   return (
     <div className="user-card">
-      <div className="user-avatar"></div>
+      <div className="user-avatar">UserAvatar</div>
         <div className="user-data">
           <div className="user-name">{profileData.login}</div>
           <div className="user-desc">{profileData.description}</div>
+          <div className="add-friend-button">Добавить в друзья</div>
         </div>
     </div>
   )

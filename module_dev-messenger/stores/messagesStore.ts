@@ -1,9 +1,22 @@
 import { create } from "zustand"
 
+type MessageT = {
+    senderId: Number,
+    chatId: Number,
+    senderName: String,
+    senderAvatar: String,
+    messageText: String
+}
+
 interface MessagesStoreI {
-    message
+    messages: MessageT[]
+    createMessages: (data: MessageT) => void
 }
 
 const useMessagesStore = create<MessagesStoreI>((set) => ({
+    messages: [],
 
+    createMessages: (data) => set((state) => {
+        return {...state, messages: [...state.messages, data]}
+    })
 }))
