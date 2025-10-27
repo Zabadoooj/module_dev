@@ -1,19 +1,23 @@
 import { create } from "zustand";
 
 type ProfileDataT = {
-    avatar: string,
-    login: string,
-    password: string,
-    description: string
+    id: String,
+    avatar: String,
+    email: String,
+    login: String,
+    password: String,
+    description: String
 }
 
 interface useProfileI {
     profileData: ProfileDataT
-    updateProfile: (filedName: string, value: string) => void
+    updateProfile: (filedName: String, value: String) => void
+    // logoutProfile: (id: String) => void
 }
 
 export const useProfile = create<useProfileI>((set) => ({
     profileData: {
+        id: "",
         avatar: "",
         email: "",
         login: "Логин",
@@ -25,5 +29,9 @@ export const useProfile = create<useProfileI>((set) => ({
         let newProfileData = {...state.profileData};
         newProfileData[filedName] = value;
         return {...state, profileData: newProfileData};
-    })
+    }),
+
+    // logoutProfile: (id) => set(state) => {
+    //     return 
+    // }
 }));

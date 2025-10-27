@@ -1,6 +1,8 @@
 import './Messenger.css'
 import { useShallow } from 'zustand/shallow'
-import { useMessagesStore } from '../stores/messagesStore'
+import { useMessagesStore } from '../stores/messages_store'
+import { useChatStore } from '../stores/chat_store'
+import { useEffect } from 'react'
 
 type UserDataT = {
     userName: String
@@ -47,15 +49,68 @@ const ChatItem = (props:ChatItemT) => {
     )
 }
 
+const ChatsList = () => {
+    const {chatsListData} = useChatStore(useShallow(state => ({
+        chatsListData: state.chatList
+    })))
+
+    
+
+    return (
+        <div className="chat_list">
+            {chatsListData.map((data) => <ChatItem senderName={data.chatUser} lastMessage={data.lastMessage}/>)}
+        </div>
+    )
+}
 
 
+const CreateUser = () => {
+    const { createChat} = useChatStore(useShallow(state => ({
+        createChat: state.createChat
+    })))
 
+    createChat({
+        id: "",
+        chatUser: "chatUser",
+        chatAvatar: "",
+        lastMessage: "lastMessage"
+    })
 
+    return (
+        <div className="addChat">
+            userName
+            <div className="testInput" contentEditable onInput={(e) => console.log(e.target.innerText)}></div>
+            lastMessage
+            <div className="testInput" contentEditable></div>
+
+            <button>Create</button>
+        </div>
+    )
+}
+
+type CreateUserT = {
+    userName: String
+    lastMessage: String
+}
 
 
 
 function Messenger() {
+
+    // const { createChat} = useChatStore(useShallow(state => ({
+    //     createChat: state.createChat
+    // })))
     
+    // useEffect(() => {
+    //     createChat({
+    //         id: "",
+    //         chatUser: "chatUser",
+    //         chatAvatar: "",
+    //         lastMessage: "lastMessage"
+    //     })
+    // }, [])
+    
+
     return(
         <>
         <main>
@@ -64,18 +119,9 @@ function Messenger() {
 
 
             <div className="chat_listbox">
-                <div className="chat_list">
+                <ChatsList/>
 
-                    <ChatItem senderName={"Имя Пользователя"} lastMessage={"Последнее сообщение"} />
-                    <ChatItem senderName={"Имя2"} lastMessage={"Халоу"} />
-                    <ChatItem senderName={"Имя3"} lastMessage={"Пока"} />
-                    <ChatItem senderName={"Имя4"} lastMessage={"Last Message"} />
-
-                    
-
-
-                    
-                </div>
+                <CreateUser/>
             </div>
         </div>
 

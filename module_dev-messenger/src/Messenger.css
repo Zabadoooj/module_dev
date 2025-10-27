@@ -37,6 +37,20 @@ main{
     gap: 3.5vh;
 }
 
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 14vw;
+}
+
+.lastMessage {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .blured{
     backdrop-filter: blur(1px);
 }
@@ -492,7 +506,20 @@ main{
 }
 
 
+.addChat{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
 
+.testInput{
+    width: 70%;
+    height: 20px;
+
+    background: white;
+    color: #221F26;
+    border: solid #221F26 2px;
+}
 
 
 /* .sendMessageBox{
