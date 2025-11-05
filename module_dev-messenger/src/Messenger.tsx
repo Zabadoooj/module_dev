@@ -104,7 +104,7 @@ const Messages = () => {
     return (
         <>
             { messages.map((data) => <Message
-            chatId={data.chatId}            
+            chatId={data.chatId}
             senderId={data.senderId}
             messageId={data.messageid}
             senderName={data.senderName}
@@ -137,7 +137,9 @@ const Message = (props: MessageContentT) => {
         <>
             <div className={`message_wrapper ${props.senderId == userData.userData.id  ? 'sended_msg' : 'recived_msg' }`}>
                     <div className="message">
-                    <img className="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar" />
+                    
+                    {props.senderId == userData.userData.id ? <img className="avatar" src={userData.userData.avatar} alt="avatar" /> : <img className='avatar' src={props.senderAvatar}/>}
+                    
 
                     <div className="message_content">
                         <div className={`firstMessage`}>{props.messageText}</div>

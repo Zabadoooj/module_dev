@@ -17,7 +17,7 @@ interface useProfileI {
 export const useProfileStore = create<useProfileI>((set) => ({
     profileData: {
         id: "0",
-        avatar: "url",
+        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s",
         login: "СупермегаПользователь 2007",
         password: "testPassword123",
         description: "Очень крутое описание профиля для самой лучшей соц.сети"
