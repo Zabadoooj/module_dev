@@ -3,6 +3,7 @@ import { useShallow } from 'zustand/shallow'
 import { useMessagesStore } from '../stores/messages_store'
 import { useChatStore } from '../stores/chat_store'
 import { useEffect, useState } from 'react'
+import { useProfileStore } from '../stores/profile_store'
 
 type UserDataT = {
     userName: String
@@ -10,13 +11,18 @@ type UserDataT = {
 }
 
 const UserData = (props: UserDataT) => {
+
+    const userData = useProfileStore(useShallow(state => ({
+        profileData: state.profileData
+    })))
+
     return (
         <div className="usercardBox">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar" />
             <div className="info">
                 <div className="userData">
-                    <div className="username">{props.userName}</div>
-                    <div className="descripton">{props.userDescription}</div>
+                    <div className="username">{userData.profileData.login}</div>
+                    <div className="descripton">{userData.profileData.description}</div>
                 </div>
             </div>
 
@@ -89,10 +95,61 @@ const CreateUser = () => {
     )
 }
 
-type CreateUserT = {
-    userName: String
-    lastMessage: String
+
+const Messages = () => {
+    const { messages } = useMessagesStore(useShallow(state => ({
+        messages: state.messages
+    })))
+
+    return (
+        <>
+            { messages.map((data) => <Message
+            chatId={data.chatId}            
+            senderId={data.senderId}
+            messageId={data.messageid}
+            senderName={data.senderName}
+            senderAvatar={data.senderAvatar}
+            messageText={data.messageText}
+            
+            ></Message>) }
+        </>
+    )
 }
+
+type MessageContentT = {
+    messageId: String,
+    senderId: String,
+    chatId: String,
+    senderName: String,
+    senderAvatar: String,
+    messageText: String
+}
+
+
+
+const Message = (props: MessageContentT) => {
+
+    const userData = useProfileStore(useShallow(state => ({
+        userData: state.profileData
+    })))
+
+    return (
+        <>
+            <div className={`message_wrapper ${props.senderId == userData.userData.id  ? 'sended_msg' : 'recived_msg' }`}>
+                    <div className="message">
+                    <img className="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar" />
+
+                    <div className="message_content">
+                        <div className={`firstMessage`}>{props.messageText}</div>
+                        {/* <div className="secondMessage">Длинное сообщение всякое, тут много текста, просто потому что. Не знаю что ещё написать, по этому продолжу писать всякий бред чтоб заполнить пространство</div>
+                        <div className="lastMessage">Последнее сообщение. Ну всё, бывай</div> */}
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}
+
 
 
 
@@ -138,27 +195,8 @@ function Messenger() {
 
                         <div className="mockBlock-top"></div>
 
-                        <div className="message_wrapper sended_msg">
-                            <div className="message">
-                                <img className="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar" />
-                                <div className="message_content">
-                                    <div className="firstMessage">Короткое сообщение какое-нибудь</div>
-                                    <div className="secondMessage">Длинное сообщение всякое, тут много текста, просто потому что. Не знаю что ещё написать, по этому продолжу писать всякий бред чтоб заполнить пространство</div>
-                                    <div className="lastMessage">Последнее сообщение. Ну всё, бывай</div>
-                                </div>
-                            </div>
-                        </div>
+                        <Messages/>
 
-                        <div className="message_wrapper recived_msg">
-                            <div className="message">
-                                <img className="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar" />
-                                <div className="message_content">
-                                    <div className="firstMessage">Короткое сообщение какое-нибудь</div>
-                                    <div className="secondMessage">Длинное сообщение всякое, тут много текста, просто потому что. Не знаю что ещё написать, по этому продолжу писать всякий бред чтоб заполнить пространство</div>
-                                    <div className="lastMessage">Последнее сообщение. Ну всё, бывай</div>
-                                </div>
-                            </div>
-                        </div>
 
                         <div className="mockBlock-bottom"></div>
                     </div>

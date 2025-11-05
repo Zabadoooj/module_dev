@@ -81,6 +81,10 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: right;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .usercardBox button{
     position: absolute;
@@ -326,7 +330,7 @@ main{
     gap: 5px;
 
     padding: 1%;
-
+    
 }
 .message_content{
     width: 30vw;
@@ -373,9 +377,10 @@ main{
 
 .sended_msg .firstMessage{
     border-radius: 350px 1000px 100px 300px;
+    padding: 5px;
 }
 .recived_msg .firstMessage{
-    padding: 2vh 1vw;
+    padding: 1.5vh 1vw;
     border-radius: 1000px 350px 300px 100px;
 }
 .secondMessage{
