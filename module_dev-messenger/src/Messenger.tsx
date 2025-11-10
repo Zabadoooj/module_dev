@@ -2,7 +2,7 @@ import './Messenger.css'
 import { useShallow } from 'zustand/shallow'
 import { useMessagesStore } from '../stores/messages_store'
 import { useChatStore } from '../stores/chat_store'
-import { useEffect, useState } from 'react'
+import { use, useEffect, useRef, useState } from 'react'
 import { useProfileStore } from '../stores/profile_store'
 
 type UserDataT = {
@@ -110,6 +110,7 @@ const Messages = () => {
             senderName={data.senderName}
             senderAvatar={data.senderAvatar}
             messageText={data.messageText}
+            sendedAt={data.sendedAt}
             
             ></Message>) }
         </>
@@ -122,7 +123,8 @@ type MessageContentT = {
     chatId: String,
     senderName: String,
     senderAvatar: String,
-    messageText: String
+    messageText: String,
+    sendedAt: String
 }
 
 
@@ -142,13 +144,65 @@ const Message = (props: MessageContentT) => {
                     
 
                     <div className="message_content">
-                        <div className={`firstMessage`}>{props.messageText}</div>
+                        <div className={`firstMessage`}>
+                            
+                            <div className="text">{props.messageText}</div>
+                            
+                            <div className="sendedTime">{props.sendedAt}</div>
+                        </div>
                         {/* <div className="secondMessage">Длинное сообщение всякое, тут много текста, просто потому что. Не знаю что ещё написать, по этому продолжу писать всякий бред чтоб заполнить пространство</div>
                         <div className="lastMessage">Последнее сообщение. Ну всё, бывай</div> */}
                     </div>
                 </div>
             </div>
         </>
+    )
+}
+
+
+
+const MessageSend = () => {
+
+    const [messageText, setMessageText] = useState("")
+    
+    const userData = useProfileStore(useShallow(state => ({
+        userData: state.profileData
+    }))) 
+
+    const inputElRef = useRef<React.Ref<HTMLDivElement>>()
+
+    const {sendMessage, messagesData} = useMessagesStore(useShallow(state => ({
+        sendMessage: state.createMessages,
+        messagesData: state.messages
+    })))
+
+
+    const createMessage = () => {
+
+        if(messageText.replace(/\s/g, '') != ""){
+            sendMessage({
+                senderId: userData.userData.id,
+                chatId: "0",
+                senderName: userData.userData.login,
+                senderAvatar: userData.userData.avatar,
+                messageText: messageText
+            })
+
+            setMessageText("")
+
+            inputElRef.current.innerHTML = ""
+
+            // console.log(messagesData);
+            
+        }
+    }
+
+
+    return (
+        <div className="sendMessageBox blured">
+            <div contentEditable ref={inputElRef} className="sendInputBox" onKeyDown={(e) => e.key === 'Enter' ? createMessage() : undefined} onInput={(e) => setMessageText(e.target.innerText)}></div>
+            <button onClick={() => createMessage()}>Send</button>
+        </div>
     )
 }
 
@@ -162,7 +216,6 @@ function Messenger() {
             <main>
                 <div className="leftBox">
                     <UserData userName={"Ваше имя"} userDescription={"Ваше описание"} />
-
 
                     <div className="chat_listbox">
                         <ChatsList />
@@ -199,14 +252,12 @@ function Messenger() {
 
                         <Messages/>
 
+                        <MessageSend/>
 
                         <div className="mockBlock-bottom"></div>
                     </div>
 
-                    <div className="sendMessageBox blured">
-                        <div contentEditable className="sendInputBox"></div>
-                        <button>Send</button>
-                    </div>
+                    
 
                 </div>
 

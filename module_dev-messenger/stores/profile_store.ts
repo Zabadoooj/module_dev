@@ -5,7 +5,8 @@ type ProfileDataT = {
     avatar: String,
     login: String,
     password: String,
-    description: String
+    description: String,
+    selectedChatId: String
 }
 
 interface useProfileI {
@@ -20,7 +21,8 @@ export const useProfileStore = create<useProfileI>((set) => ({
         avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s",
         login: "СупермегаПользователь 2007",
         password: "testPassword123",
-        description: "Очень крутое описание профиля для самой лучшей соц.сети"
+        description: "Очень крутое описание профиля для самой лучшей соц.сети",
+        selectedChatId: "none"
     },
 
     // updateProfile: (filedName, value) => set((state) => {
