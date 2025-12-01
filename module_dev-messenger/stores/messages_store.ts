@@ -24,13 +24,13 @@ interface MessagesStoreI {
 
 export const useMessagesStore = create<MessagesStoreI>((set) => ({
     messages: [
-        {messageid:"0", senderId:"0", chatId:"0", senderName:"senderName",senderAvatar:"url",messageText:"Hello world", sendedAt:"14:00"},
-        {messageid:"1", senderId:"0", chatId:"0", senderName:"senderName",senderAvatar:"url",messageText:"Длинное сообщениеееееееееееееееееееееее", sendedAt:"14:00"},
-        {messageid:"2", senderId:"0", chatId:"0", senderName:"senderName",senderAvatar:"url",messageText:"Последнее сообщение", sendedAt:"14:00"},
+        // {messageid:"0", senderId:"0", chatId:"0", senderName:"senderName",senderAvatar:"url",messageText:"Hello world", sendedAt:"14:00"},
+        // {messageid:"1", senderId:"0", chatId:"0", senderName:"senderName",senderAvatar:"url",messageText:"Длинное сообщениеееееееееееееееееееееее", sendedAt:"14:00"},
+        // {messageid:"2", senderId:"0", chatId:"0", senderName:"senderName",senderAvatar:"url",messageText:"Последнее сообщение", sendedAt:"14:00"},
 
-        {messageid:"3", senderId:"1", chatId:"0", senderName:"Someone",senderAvatar:"url",messageText:"Hello world", sendedAt:"14:30"},
-        {messageid:"4", senderId:"1", chatId:"0", senderName:"Someone",senderAvatar:"url",messageText:"Длинное сообщениееееееееееееееееееееееееее", sendedAt:"14:30"},
-        {messageid:"5", senderId:"1", chatId:"0", senderName:"Someone",senderAvatar:"url",messageText:"Последнее сообщение", sendedAt:"14:30"}
+        // {messageid:"3", senderId:"1", chatId:"0", senderName:"Someone",senderAvatar:"url",messageText:"Hello world", sendedAt:"14:30"},
+        // {messageid:"4", senderId:"1", chatId:"0", senderName:"Someone",senderAvatar:"url",messageText:"Длинное сообщениееееееееееееееееееееееееее", sendedAt:"14:30"},
+        // {messageid:"5", senderId:"1", chatId:"0", senderName:"Someone",senderAvatar:"url",messageText:"Последнее сообщение", sendedAt:"14:30"}
     ],
 
     createMessages: (data) => set((state) => {

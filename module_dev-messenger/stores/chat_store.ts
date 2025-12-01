@@ -17,6 +17,7 @@ export const useChatStore = create<useChatI>((set) => ({
     chatList: [],
 
     createChat: (chatInfo) => set((state) => {
+        if(chatInfo.chatUser != "")
         return {...state, chatList: [...state.chatList, chatInfo]}
     }),
 

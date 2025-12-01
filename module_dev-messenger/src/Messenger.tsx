@@ -41,12 +41,21 @@ type ChatItemT = {
 }
 
 const ChatItem = (props: ChatItemT) => {
+
+    const { chats } = useChatStore(useShallow(state => ({
+        chatListData: state.chatList
+    })))
+
+    console.log(chats)
+
+
     return (
-        <div className="chatbox">
+        <div className="chatbox" onClick={() => {}}>
             <div className="chat">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAd5avdba8EiOZH8lmV3XshrXx7dKRZvhx-A&s" alt="avatar" />
 
                 <div className="info">
+                    
                     <div className="chatName"><b>{props.senderName}</b></div>
                     <div className="lastMessage">{props.lastMessage}</div>
                 </div>
@@ -76,20 +85,20 @@ const CreateUser = () => {
     })))
 
     const [usernameInput, setUsernameInput] = useState("")
-    const [lastMessageInput, setlastMessageInput] = useState("")
+    // const [lastMessageInput, setlastMessageInput] = useState("")
 
     return (
         <div className="addChat">
             userName
             <div className="testInput" contentEditable onInput={(e) => setUsernameInput(e.target.innerText)}></div>
-            lastMessage
-            <div className="testInput" contentEditable onInput={(e) => setlastMessageInput(e.target.innerText)}></div>
+            {/* lastMessage */}
+            {/* <div className="testInput" contentEditable onInput={(e) => setlastMessageInput(e.target.innerText)}></div> */}
 
             <button onClick={() => createChat({
                 id: "",
                 chatUser: usernameInput,
                 chatAvatar: "",
-                lastMessage: lastMessageInput
+                lastMessage: ""
             })}>Create</button>
         </div>
     )
@@ -148,7 +157,7 @@ const Message = (props: MessageContentT) => {
                             
                             <div className="text">{props.messageText}</div>
                             
-                            <div className="sendedTime">{props.sendedAt}</div>
+                            {/* <div className="sendedTime">{props.sendedAt}</div> */}
                         </div>
                         {/* <div className="secondMessage">Длинное сообщение всякое, тут много текста, просто потому что. Не знаю что ещё написать, по этому продолжу писать всякий бред чтоб заполнить пространство</div>
                         <div className="lastMessage">Последнее сообщение. Ну всё, бывай</div> */}
